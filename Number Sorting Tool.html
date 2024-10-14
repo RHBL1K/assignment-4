@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Sorting Tool</title>
+</head>
+<body>
+    <h1>Number Sorting Tool</h1>
+    
+    <form id="numberForm">
+        <label for="numbers">Enter numbers (separated by commas):</label><br>
+        <input type="text" id="numbers" name="numbers" placeholder="e.g., 5, 3, 8, 1"><br><br>
+        
+        <label for="order">Sort order:</label><br>
+        <select id="order" name="order">
+            <option value="ascending">Ascending</option>
+            <option value="descending">Descending</option>
+        </select><br><br>
+        
+        <button type="submit">Sort Numbers</button>
+    </form>
+
+    <p id="result"></p>
+    <p id="error" style="color:red;"></p>
+
+    <script>
+        document.getElementById('numberForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const input = document.getElementById('numbers').value;
+            const order = document.getElementById('order').value;
+            const errorMessage = document.getElementById('error');
+            const result = document.getElementById('result');
+
+            errorMessage.textContent = '';
+
+            const numberArray = input.split(',').map(Number);
+            
+            if (numberArray.some(isNaN)) {
+                errorMessage.textContent = 'Please enter valid numbers separated by commas.';
+                return;
+            }
+
+            numberArray.sort((a, b) => order === 'ascending' ? a - b : b - a);
+
+            result.textContent = `Sorted numbers (${order}): ${numberArray.join(', ')}`;
+        });
+    </script>
+</body>
+</html>
