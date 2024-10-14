@@ -1,0 +1,71 @@
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: bisque;
+    height: 100px;
+    width: 100%;
+}
+
+nav {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 25px;
+    font-family: 'Lucida Sans Unicode', Verdana, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    transition: transform 0.3s ease;
+}
+
+a:hover {
+    color: rgb(112, 103, 236); 
+    transform: scale(1.2);
+}
+
+.Main_page_main {
+    background-image: url("new_background.jpg");
+    background-size: cover;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.color-changer-container {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    transition: background-color 0.5s ease;
+}
+
+.color-changer-content {
+    text-align: center;
+}
+
+.color-changer-button {
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.color-changer-button:hover {
+    background-color: #e0e0e0;
+}
